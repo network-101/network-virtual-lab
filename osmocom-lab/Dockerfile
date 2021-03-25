@@ -64,6 +64,8 @@ RUN apt-get install -y libsctp-dev libosmoctrl0 osmo-bsc osmo-stp osmo-msc osmo-
 COPY osmo-* /etc/osmocom/
 COPY start.sh /root/start.sh
 RUN chmod +x /root/start.sh
+COPY start_osmocom.sh /root/start_osmocom.sh
+RUN chmod +x /root/start_osmocom.sh
 
 EXPOSE 2905
 
