@@ -15,6 +15,6 @@ nohup osmo-stp -c /etc/osmocom/osmo-stp.cfg                 &> nohup_stp &
 nohup osmo-bsc -c /etc/osmocom/osmo-bsc.cfg                 &> nohup_bsc &
 nohup osmo-ggsn -c /etc/osmocom/osmo-ggsn.cfg               &> nohup_ggsn &
 nohup osmo-sgsn -c /etc/osmocom/osmo-sgsn.cfg               &> nohup_sgsn &
-nohup osmo-bts-virtual -c /etc/osmocom/osmo-bts-virtual       &> nohup_bts_virtual &
-nohup osmo-sip-connector -c /etc/osmocom/osmo-sip-connector &> nohup_sip_connector &
+nohup osmo-bts-virtual -c /etc/osmocom/osmo-bts-virtual.cfg       &> nohup_bts_virtual &
+nohup osmo-sip-connector -c /etc/osmocom/osmo-sip-connector.cfg &> nohup_sip_connector &
 while true; do sleep 1000; done
