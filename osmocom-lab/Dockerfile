@@ -67,7 +67,7 @@ RUN chmod +x /root/start.sh
 COPY start_osmocom.sh /root/start_osmocom.sh
 RUN chmod +x /root/start_osmocom.sh
 
-EXPOSE 2905
+#EXPOSE 2905
 
 #CMD ["/root/start.sh"]
 CMD ["/bin/bash", "/root/start.sh"]
