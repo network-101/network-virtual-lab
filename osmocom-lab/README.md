@@ -34,7 +34,7 @@ docker build -t "osmocom-lab" .
 
 ```
 #docker start
-docker run -dit --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun "osmocom-lab" /bin/bash
+docker run -dit --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun "osmocom-lab"
 ```
 
 
@@ -43,24 +43,15 @@ docker run -dit --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun "osmocom-
 
 # Config
 
-#STP
+## STP
+```
 telnet localhost 4239
-#HLR
+```
+## HLR
+```
 telnet localhost 4258
-#BTS-virtual
-telnet 127.0.0.1 4241
-#BSC
-telnet localhost 4242
-
-
-#Enable output real time logging
-enable
-logging enable
-logging filter all 1
-logging color 1
-
-
-## Enable EIR functionality in HLR
+```
+### Enable EIR functionality in HLR
 ```
 telnet localhost 4258
 OsmoHLR> enable
@@ -72,8 +63,7 @@ OsmoHLR(config)# exit
 OsmoHLR# copy running-config startup-config
 ```
 
-
-## Add test IMSI and ISDN to HLR
+### Add test IMSI and ISDN to HLR
 ```
 telnet localhost 4258
 subscriber imsi 001010000666601 create
@@ -89,3 +79,26 @@ subscriber imsi 001010000666604 create
 subscriber imsi 001010000666604 update msisdn 33512344444
 subscriber imsi 001010000666604 update aud2g comp128v3 ki 465B5CE8B199B49FAA5F0A2EE238A6BC
 ```
+
+## BTS-virtual
+```
+telnet 127.0.0.1 4241
+```
+## BSC
+```
+telnet localhost 4242
+```
+## MSC 
+```
+telnet localhost 4254
+```
+## Enable output real time logging
+```
+enable
+logging enable
+logging filter all 1
+logging color 1
+```
+
+
+
