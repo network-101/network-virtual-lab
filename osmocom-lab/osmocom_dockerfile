@@ -1,0 +1,49 @@
+apt update && apt upgrade -y
+
+
+# build OSMOCOM
+wget https://download.opensuse.org/repositories/network:/osmocom:/latest/Debian_10/Release.key
+apt-key add Release.key && rm Release.key
+echo "deb https://download.opensuse.org/repositories/network:/osmocom:/latest/xUbuntu_18.04/ ./" > /etc/apt/sources.list.d/osmocom-latest.list
+apt-get update
+
+#
+
+apt-get install libsctp-dev libosmoctrl0 osmo-bsc osmo-stp osmo-msc osmo-hlr osmo-bts-virtual telnet osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector
+
+
+sudo rm /tmp/pcu_bts
+sudo systemctl $cmd osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
+sudo systemctl $cmd osmo-bts-virtual
+
+
+#STP
+telnet localhost 4239
+#HLR
+telnet localhost 4258
+#BTS-virtual
+telnet 127.0.0.1 4241
+#BSC
+telnet localhost 4242
+
+
+#Enable logging
+enable
+logging enable
+logging filter all 1
+logging color 1
+
+
+# test imsi
+subscriber imsi 001010000666601 create
+subscriber imsi 001010000666601 update msisdn 33512341111
+subscriber imsi 001010000666601 update aud2g comp128v3 ki 465B5CE8B199B49FAA5F0A2EE238A6BC
+subscriber imsi 001010000666602 create
+subscriber imsi 001010000666601 update msisdn 33512342222
+subscriber imsi 001010000666602 update aud2g comp128v3 ki 465B5CE8B199B49FAA5F0A2EE238A6BC
+subscriber imsi 001010000666603 create
+subscriber imsi 001010000666603 update msisdn 33512343333
+subscriber imsi 001010000666603 update aud2g comp128v3 ki 465B5CE8B199B49FAA5F0A2EE238A6BC
+subscriber imsi 001010000666604 create
+subscriber imsi 001010000666604 update msisdn 33512344444
+subscriber imsi 001010000666604 update aud2g comp128v3 ki 465B5CE8B199B49FAA5F0A2EE238A6BC
