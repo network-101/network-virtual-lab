@@ -15,6 +15,9 @@ sudo echo "deb https://download.opensuse.org/repositories/network:/osmocom:/late
 sudo apt-get update
 apt-get install libsctp-dev libosmoctrl0 osmo-bsc osmo-stp osmo-msc osmo-hlr osmo-bts-virtual telnet osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector
 ```
+## Configuration
+Copy all the ```*.cfg``` file into ```/etc/osmocom/```
+
 ## Run
 ```
 sudo rm /tmp/pcu_bts
