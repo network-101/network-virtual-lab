@@ -17,11 +17,15 @@ apt-get install libsctp-dev libosmoctrl0 osmo-bsc osmo-stp osmo-msc osmo-hlr osm
 ```
 ## Configuration
 Copy all the ```*.cfg``` file into ```/etc/osmocom/```
-
-## Run
+Thene disable all services:
 ```
-sudo rm /tmp/pcu_bts
-sudo systemctl $cmd osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
+sudo systemctl disable osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
+```
+## Run
+To start all, don't use ```systemctl restart``` command, use only stop and start:
+```
+sudo systemctl stop osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
+sudo systemctl start osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
 ```
 
 
