@@ -32,8 +32,9 @@ sudo systemctl start osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo
 
 # Installation - Docker
 
-Build a new docker image
-Change dir in the git repository root and run:
+Build a new docker image.
+
+Change dir in osmocom-lab, where the Dockerfile is located, and run:
 ```
 docker build -t "osmocom-lab" .
 ```
@@ -48,7 +49,7 @@ docker run -dit --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun "osmocom-
 
 
 
-# Config
+# OSMOCOM Config
 
 ## STP
 ```
