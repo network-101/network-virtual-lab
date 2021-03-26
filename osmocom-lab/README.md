@@ -27,7 +27,11 @@ To start all, don't use ```systemctl restart``` command, use only stop and start
 sudo systemctl stop osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
 sudo systemctl start osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-sgsn osmo-sip-connector osmo-bts-virtual
 ```
-
+Check if osmocm is running by using ```ps aux```, there should be all the network elements in the processes list. Otherwise restart them manually:
+```
+docker exec -it CONTAINER_ID /bin/bash  #Open a bash shell in the container
+root@98a94eeee5ac:~# /root/start_osmocom.sh
+```
 
 
 # Installation - Docker
